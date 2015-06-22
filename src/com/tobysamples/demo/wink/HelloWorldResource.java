@@ -22,7 +22,7 @@ public class HelloWorldResource {
     	Session session = ContextInfo.getUserSession();
     	String message = "Hello World";
     	if (session != null) {
-    		message += " " + session.getEffectiveUserName();
+    		message += " " + session.getCommonUserName();
     	}
     	jjo.put("message", message);
     	ResponseBuilder builder = Response.ok(jjo.toString(), MediaType.APPLICATION_JSON);
