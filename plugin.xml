@@ -4,7 +4,7 @@
    <extension
          point="com.ibm.pvc.webcontainer.application">
       <contextRoot>
-         /hellothere
+         /jackson
       </contextRoot>
       <contentLocation>
          WebContent

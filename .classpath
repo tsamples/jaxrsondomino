@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/libertyBeta/usr/extension/lib/lib/Notes.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-all-1.9.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
