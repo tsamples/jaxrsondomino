@@ -14,8 +14,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
+import lotus.domino.Document;
+
 import lotus.domino.NotesException;
 import lotus.domino.Session;
+import lotus.domino.Database;
 
 import com.ibm.commons.util.io.json.JsonJavaObject;
 import com.ibm.domino.osgi.core.context.ContextInfo;
@@ -25,10 +28,15 @@ import com.ibm.domino.osgi.core.context.ContextInfo;
 public class HelloWorldResource {
     @GET
     public MyBean getMessage() throws NotesException {
+    	Session s = SudoUtils.getSessionAs("CN=Mark Roden/O=PSCDM");
+    	Database db = s.getDatabase("", "mydealiq\\dealsscm.nsf");
+    	Document doc = db.createDocument();
+    	doc.replaceItemValue("Test", "Toby");
+    	doc.save();
     	MyBean mybean = new MyBean();
     	mybean.setBirthdate(new Date());
     	mybean.setEmail("test@test.com");
-    	mybean.setFname("Toby");
+    	mybean.setFname(s.getEffectiveUserName());
     	mybean.setLname("User");
     	mybean.setPhone("123.456.7841");
     	return mybean;
